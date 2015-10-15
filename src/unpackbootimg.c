@@ -229,7 +229,6 @@ int main(int argc, char** argv)
 
     total_read += read_padding(f, header.dt_size, pagesize);
 
-#if 0
     sprintf(tmp, "%s/signature", directory);
     FILE *fsig = fopen(tmp, "wb");
     byte* bsig = (byte*)malloc(728);
@@ -238,7 +237,6 @@ int main(int argc, char** argv)
     total_read += 728;
     fwrite(bsig, 728, 1, r);
     fclose(fsig);
-#endif
         
     fclose(f);
     
