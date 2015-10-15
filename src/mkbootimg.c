@@ -301,7 +301,7 @@ int main(int argc, char **argv)
     }
 
     if(sig_data) {
-        if(write(fd, sig_data, 728) != 728) goto fail;
+        if(write(fd, sig_data, 256) != 256) goto fail;
     }
     
     return 0;

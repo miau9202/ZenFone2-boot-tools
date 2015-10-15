@@ -231,11 +231,11 @@ int main(int argc, char** argv)
 
     sprintf(tmp, "%s/signature", directory);
     FILE *fsig = fopen(tmp, "wb");
-    byte* bsig = (byte*)malloc(728);
+    byte* bsig = (byte*)malloc(256);
     //printf("Reading signature...\n");
-    fread(bsig, 728, 1, f);
-    total_read += 728;
-    fwrite(bsig, 728, 1, r);
+    fread(bsig, 256, 1, f);
+    total_read += 256;
+    fwrite(bsig, 256, 1, r);
     fclose(fsig);
         
     fclose(f);
