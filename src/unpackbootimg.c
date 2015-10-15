@@ -112,6 +112,7 @@ int main(int argc, char** argv)
         printf("  %-15s : 0x%08x\n", "second_offset", header.second_addr - base);
         printf("  %-15s : %d\n", "second_size", header.second_size);
     }
+    printf("  %-15s : %d\n", "dt_size", header.dt_size);
     //printf("BOARD_TAGS_OFFSET %08x\n", header.tags_addr - base);
     printf("  %-15s : %s\n", "cmdline", header.cmdline);
     
@@ -216,6 +217,17 @@ int main(int argc, char** argv)
     
     //printf("total read: %d\n", header.second_size);
     total_read += read_padding(f, header.second_size, pagesize);
+
+    sprintf(tmp, "%s/dt.img", directory);
+    FILE *d = fopen(tmp, "wb");
+    byte* dt = (byte*)malloc(header.dt_size);
+    //printf("Reading dt...\n");
+    fread(dt, header.dt_size, 1, f);
+    total_read += header.dt_size;
+    fwrite(dt, header.dt_size, 1, r);
+    fclose(d);
+
+    total_read += read_padding(f, header.dt_size, pagesize);
 
 #if 0
     sprintf(tmp, "%s/signature", directory);
