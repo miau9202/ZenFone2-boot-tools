@@ -302,6 +302,7 @@ int main(int argc, char **argv)
 
     if(sig_data) {
         if(write(fd, sig_data, 256) != 256) goto fail;
+        if(write_padding(fd, pagesize, 256)) goto fail;
     }
     
     return 0;

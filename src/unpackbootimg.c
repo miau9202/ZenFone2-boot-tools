@@ -108,12 +108,10 @@ int main(int argc, char** argv)
     printf("  %-15s : %d\n", "kernel_size", header.kernel_size);
     printf("  %-15s : 0x%08x\n", "ramdisk_offset", header.ramdisk_addr - base);
     printf("  %-15s : %d\n", "ramdisk_size", header.ramdisk_size);
-    if (header.second_size != 0) {
-        printf("  %-15s : 0x%08x\n", "second_offset", header.second_addr - base);
-        printf("  %-15s : %d\n", "second_size", header.second_size);
-    }
+    printf("  %-15s : 0x%08x\n", "second_offset", header.second_addr - base);
+    printf("  %-15s : %d\n", "second_size", header.second_size);
+    printf("  %-15s : 0x%08x\n", "tags_offset", header.tags_addr - base);
     printf("  %-15s : %d\n", "dt_size", header.dt_size);
-    //printf("BOARD_TAGS_OFFSET %08x\n", header.tags_addr - base);
     printf("  %-15s : %s\n", "cmdline", header.cmdline);
     
     if (pagesize == 0) {
