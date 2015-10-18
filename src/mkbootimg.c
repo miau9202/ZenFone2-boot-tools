@@ -114,11 +114,11 @@ int main(int argc, char **argv)
     int fd;
     SHA_CTX ctx;
     const uint8_t* sha;
-    unsigned base           = 0x10000000;
+    unsigned base           = 0x80078000;
     unsigned kernel_offset  = 0x00008000;
-    unsigned ramdisk_offset = 0x01000000;
-    unsigned second_offset  = 0x00f00000;
-    unsigned tags_offset    = 0x00000100;
+    unsigned ramdisk_offset = 0x01f88000;
+    unsigned second_offset  = 0x00e88000;
+    unsigned tags_offset    = 0x01d88000;
     size_t cmdlen;
 
     argc--;
